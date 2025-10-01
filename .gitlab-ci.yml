@@ -1,0 +1,41 @@
+# .gitlab-ci.yml
+
+cache:
+  paths:
+    - .m2/repository/
+  key: "$CI_COMMIT_REF_SLUG"
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version"
+
+stages:
+  - validate
+
+validate-docs-servis:
+  stage: validate
+  image: openjdk:17
+  script:
+    - mvn $MAVEN_CLI_OPTS clean package
+    - java -jar target/*-jar-with-dependencies.jar docs-servis
+
+validate-check-list:
+  stage: validate
+  image: openjdk:17
+  script:
+    - mvn $MAVEN_CLI_OPTS clean package
+    - java -jar target/*-jar-with-dependencies.jar check-list
+
+validate-csv:
+  stage: validate
+  image: openjdk:17
+  script:
+    - mvn $MAVEN_CLI_OPTS clean package
+    - java -jar target/*-jar-with-dependencies.jar csv
+
+validate-json:
+  stage: validate
+  image: openjdk:17
+  script:
+    - mvn $MAVEN_CLI_OPTS clean package
+    - java -jar target/*-jar-with-dependencies.jar json
