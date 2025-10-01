@@ -1,0 +1,66 @@
+# .github/workflows/validate.yml
+
+name: Validate Documents and JSON
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate-docs-servis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Build with Maven
+        run: mvn --batch-mode --show-version clean package
+      - name: Run docs-servis validation
+        run: java -jar target/*-jar-with-dependencies.jar docs-servis
+
+  validate-check-list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Build with Maven
+        run: mvn --batch-mode --show-version clean package
+      - name: Run check-list validation
+        run: java -jar target/*-jar-with-dependencies.jar check-list
+
+  validate-csv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Build with Maven
+        run: mvn --batch-mode --show-version clean package
+      - name: Run CSV validation
+        run: java -jar target/*-jar-with-dependencies.jar csv
+
+  validate-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Build with Maven
+        run: mvn --batch-mode --show-version clean package
+      - name: Run JSON validation
+        run: java -jar target/*-jar-with-dependencies.jar json
