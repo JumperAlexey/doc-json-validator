@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build JAR
+    name: Анализ данных
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +19,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: 'maven'  # ✅ Кэширует зависимости Maven между запусками
+          cache: 'maven'
       - name: Build with Maven
         run: mvn --batch-mode --show-version clean package
       - name: Upload JAR as artifact
@@ -30,7 +30,7 @@ jobs:
           retention-days: 1
 
   validate-docs-servis:
-    name: Validate docs-servis
+    name: Проверка документации
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +44,7 @@ jobs:
         run: java -jar target/*-jar-with-dependencies.jar docs-servis
 
   validate-check-list:
-    name: Validate check-list
+    name: Проверка чек-листа
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -58,7 +58,7 @@ jobs:
         run: java -jar target/*-jar-with-dependencies.jar check-list
 
   validate-csv:
-    name: Validate CSV
+    name: Проверка нагрузочных скриптов
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -72,7 +72,7 @@ jobs:
         run: java -jar target/*-jar-with-dependencies.jar csv
 
   validate-json:
-    name: Validate JSON
+    name: Проверка API тестов
     needs: build
     runs-on: ubuntu-latest
     steps:

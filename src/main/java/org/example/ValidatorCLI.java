@@ -116,7 +116,7 @@ public class ValidatorCLI {
         extra.removeAll(ideal);
 
         if (missing.isEmpty() && extra.isEmpty()) {
-            System.out.println("✅ Файлы идентичны");
+            System.out.println("✅ Ошибок не обнаружено");
             return true;
         } else {
             if (!missing.isEmpty()) {
