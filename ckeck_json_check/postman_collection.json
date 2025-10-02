@@ -2,7 +2,6 @@
 	"info": {
 		"_postman_id": "1ed0b5a0-3e82-4f9d-a356-ebc48ffdcc53",
 		"name": "Моя первая коллекция",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21818011"
 	},
 	"item": [
@@ -596,28 +595,6 @@
 				]
 			}
 		}
-	],
-	"variable": [
-		{
-			"key": "baseurl",
-			"value": "https://localhost"
-		},
-		{
-			"key": "page",
-			"value": "888"
-		},
-		{
-			"key": "name",
-			"value": "Allurard"
-		},
-		{
-			"key": "e-mail",
-			"value": "et@r.n"
-		},
-		{
-			"key": "password",
-			"value": "password",
-			"type": "string"
-		}
 	]
+	
 }
