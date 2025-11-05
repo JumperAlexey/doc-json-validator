@@ -196,4 +196,19 @@ public class ValidatorCLI {
         }
         return false;
     }
+
+    // В самом низу ValidatorCLI.java, внутри класса:
+
+    // Для тестов
+    static boolean compareDocxFilesForTest(String idealPath, String userPath) {
+        return compareDocxFiles(idealPath, userPath);
+    }
+
+    static boolean compareCsvFilesForTest(String idealPath, String userPath) {
+        return compareCsvFiles(idealPath, userPath);
+    }
+
+    static boolean analyzePostmanJsonForTest(String jsonPath) {
+        return analyzePostmanJson(jsonPath);
+    }
 }
