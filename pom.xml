@@ -101,7 +101,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.example.ValidatorCLI</mainClass>
+                                    <mainClass>org.example.ValidatorCLI</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
