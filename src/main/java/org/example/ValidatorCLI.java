@@ -107,6 +107,11 @@ public class ValidatorCLI {
         return lines;
     }
 
+    // Для unit-тестов
+    static boolean compareLineSetsForTest(Set<String> ideal, Set<String> user, String target) {
+        return compareLineSets(ideal, user, target);
+    }
+
     // === Общая логика сравнения ===
     private static boolean compareLineSets(Set<String> ideal, Set<String> user, String target) {
         Set<String> missing = new LinkedHashSet<>(ideal);
