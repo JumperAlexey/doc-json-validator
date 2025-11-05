@@ -23,9 +23,22 @@ jobs:
       - name: Run unit tests
         run: mvn --batch-mode test
 
+      # === ДОБАВЛЕНО: генерация и публикация Allure Report ===
+      - name: Generate Allure Report
+        uses: simple-elf/allure-report-action@v1.3.0
+        with:
+          allure_results: target/allure-results
+          allure_report: target/allure-report
+
+      - name: Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/allure-report
+
   build:
     name: Анализ данных
-    needs: unit-tests  # Ждём успешного завершения тестов
+    needs: unit-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
