@@ -1,1 +1,1 @@
-{"total":9,"items":[]}
+{"total":2,"items":[{"uid":"519697029c2ddb3f69220c41f466a2fc","name":"Валидация входных данных","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}},{"uid":"cbd352ec50fc801cf4713dbca6d30234","name":"Валидация данных","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
