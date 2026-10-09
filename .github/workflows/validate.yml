@@ -8,26 +8,29 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: write  # ← обязательно для публикации в gh-pages
+
 jobs:
   unit-tests:
     name: Unit-тесты
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # ← ЭТО ОБЯЗАТЕЛЬНО
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: 'maven'
+
       - name: Run unit tests
         run: mvn --batch-mode test
 
-      # Генерация Allure Report — ОФИЦИАЛЬНОЕ ДЕЙСТВИЕ
+      # ✅ ОФИЦИАЛЬНОЕ ДЕЙСТВИЕ — генерирует отчёт
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@v1.13
+        uses: allure-framework/allure-github-action@v2
         with:
           allure_results: target/allure-results
           allure_report: target/allure-report
