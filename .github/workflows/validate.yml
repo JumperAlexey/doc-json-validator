@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: validator-jar
-          path: target/*-jar-with-dependencies.jar
+          path: target/*.jar
           retention-days: 1
 
   validate-docs-servis:

@@ -39,3 +39,6 @@ build/
 
 ### Error logs ###
 src/test/java/org/example/error
+
+### Maven Shade ###
+dependency-reduced-pom.xml
