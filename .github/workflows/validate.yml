@@ -73,7 +73,9 @@ jobs:
           name: validator-jar
           path: target
       - name: Run validation
-        run: java -jar target/*-jar-with-dependencies.jar docs-servis
+        run: |
+          JAR=$(find target -name '*.jar' -type f | head -1)
+          java -jar "$JAR" docs-servis
 
   validate-check-list:
     name: Проверка чек-листа
@@ -87,7 +89,9 @@ jobs:
           name: validator-jar
           path: target
       - name: Run validation
-        run: java -jar target/*-jar-with-dependencies.jar check-list
+        run: |
+          JAR=$(find target -name '*.jar' -type f | head -1)
+          java -jar "$JAR" check-list
 
   validate-csv:
     name: Проверка нагрузочных скриптов
@@ -101,7 +105,9 @@ jobs:
           name: validator-jar
           path: target
       - name: Run validation
-        run: java -jar target/*-jar-with-dependencies.jar csv
+        run: |
+          JAR=$(find target -name '*.jar' -type f | head -1)
+          java -jar "$JAR" csv
 
   validate-json:
     name: Проверка API тестов
@@ -115,4 +121,6 @@ jobs:
           name: validator-jar
           path: target
       - name: Run validation
-        run: java -jar target/*-jar-with-dependencies.jar json
+        run: |
+          JAR=$(find target -name '*.jar' -type f | head -1)
+          java -jar "$JAR" json
