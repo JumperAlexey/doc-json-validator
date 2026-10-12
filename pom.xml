@@ -87,16 +87,6 @@
                 </dependencies>
             </plugin>
 
-            <!-- Allure Report Plugin -->
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.14.0</version>
-                <configuration>
-                    <allureDownloadUrl>https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.25.0/allure-commandline-2.25.0.zip</allureDownloadUrl>
-                </configuration>
-            </plugin>
-
             <!-- Maven Shade Plugin для сборки fat-jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

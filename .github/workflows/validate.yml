@@ -28,18 +28,6 @@ jobs:
       - name: Run unit tests
         run: mvn --batch-mode test
 
-      # Генерация Allure отчёта через Maven plugin
-      - name: Generate Allure Report
-        run: mvn io.qameta.allure:allure-maven:report -Dallure.report.dir=target/allure-report
-
-      # Публикация на GitHub Pages
-      - name: Deploy Allure Report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/allure-report
-          keep_files: true
-
   build:
     name: Анализ данных
     needs: unit-tests
