@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: validator-jar
-          path: target/*.jar
+          path: target/doc-json-validator-1.0.jar
           retention-days: 1
 
   validate-docs-servis:
@@ -61,9 +61,7 @@ jobs:
           name: validator-jar
           path: target
       - name: Run validation
-        run: |
-          JAR=$(find target -name '*.jar' -type f | head -1)
-          java -jar "$JAR" docs-servis
+        run: java -jar target/doc-json-validator-1.0.jar docs-servis
 
   validate-check-list:
     name: Проверка чек-листа
@@ -77,9 +75,7 @@ jobs:
           name: validator-jar
           path: target
       - name: Run validation
-        run: |
-          JAR=$(find target -name '*.jar' -type f | head -1)
-          java -jar "$JAR" check-list
+        run: java -jar target/doc-json-validator-1.0.jar check-list
 
   validate-csv:
     name: Проверка нагрузочных скриптов
@@ -93,9 +89,7 @@ jobs:
           name: validator-jar
           path: target
       - name: Run validation
-        run: |
-          JAR=$(find target -name '*.jar' -type f | head -1)
-          java -jar "$JAR" csv
+        run: java -jar target/doc-json-validator-1.0.jar csv
 
   validate-json:
     name: Проверка API тестов
@@ -109,6 +103,4 @@ jobs:
           name: validator-jar
           path: target
       - name: Run validation
-        run: |
-          JAR=$(find target -name '*.jar' -type f | head -1)
-          java -jar "$JAR" json
+        run: java -jar target/doc-json-validator-1.0.jar json
