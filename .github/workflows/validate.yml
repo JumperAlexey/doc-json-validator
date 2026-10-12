@@ -28,19 +28,23 @@ jobs:
       - name: Run unit tests
         run: mvn --batch-mode test
 
-      # ✅ ОФИЦИАЛЬНОЕ ДЕЙСТВИЕ — генерирует отчёт
-      - name: Generate Allure Report
-        uses: allure-framework/allure-github-action@v2
+      # Генерация Allure отчёта
+      - name: Install Allure Command Line
+        uses: simple-elf/allure-commandline-action@v1.7
         with:
-          allure_results: target/allure-results
-          allure_report: target/allure-report
+          allure_version: '2.25.0'
+          download_dir: tmp
+
+      - name: Generate Allure Report
+        run: tmp/bin/allure generate target/allure-results -o target/allure-report --clean
 
       # Публикация на GitHub Pages
       - name: Deploy Allure Report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/allure-report
+          keep_files: true
 
   build:
     name: Анализ данных
