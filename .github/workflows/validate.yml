@@ -30,8 +30,7 @@ jobs:
 
       # Генерация Allure отчёта через Maven plugin
       - name: Generate Allure Report
-        run: mvn allure-report:report -Dallure.report.dir=target/allure-report
-        working-directory: ${{ github.workspace }}
+        run: mvn io.qameta.allure:allure-maven:report -Dallure.report.dir=target/allure-report
 
       # Публикация на GitHub Pages
       - name: Deploy Allure Report to GitHub Pages
