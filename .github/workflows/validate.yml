@@ -28,15 +28,10 @@ jobs:
       - name: Run unit tests
         run: mvn --batch-mode test
 
-      # Генерация Allure отчёта
-      - name: Install Allure Command Line
-        run: |
-          wget -qO allure.zip https://github.com/qameta/allure-commandline/releases/download/2.25.0/allure-commandline-2.25.0.zip
-          unzip -q allure.zip -d allure
-          echo "$(pwd)/allure/allure-2.25.0/bin" >> $GITHUB_PATH
-
+      # Генерация Allure отчёта через Maven plugin
       - name: Generate Allure Report
-        run: allure generate target/allure-results -o target/allure-report --clean
+        run: mvn allure-report:report -Dallure.report.dir=target/allure-report
+        working-directory: ${{ github.workspace }}
 
       # Публикация на GitHub Pages
       - name: Deploy Allure Report to GitHub Pages
