@@ -30,13 +30,13 @@ jobs:
 
       # Генерация Allure отчёта
       - name: Install Allure Command Line
-        uses: simple-elf/allure-commandline-action@v1.7
-        with:
-          allure_version: '2.25.0'
-          download_dir: tmp
+        run: |
+          wget -qO allure.zip https://github.com/qameta/allure-commandline/releases/download/2.25.0/allure-commandline-2.25.0.zip
+          unzip -q allure.zip -d allure
+          echo "$(pwd)/allure/allure-2.25.0/bin" >> $GITHUB_PATH
 
       - name: Generate Allure Report
-        run: tmp/bin/allure generate target/allure-results -o target/allure-report --clean
+        run: allure generate target/allure-results -o target/allure-report --clean
 
       # Публикация на GitHub Pages
       - name: Deploy Allure Report to GitHub Pages
