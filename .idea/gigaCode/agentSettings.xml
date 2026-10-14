@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GigaCodeAgentSettings">
+    <option name="autoApprovedCommands">
+      <list>
+        <Execute>
+          <option name="pattern" value="cd *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="git remote *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="git log *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="git branch *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="git fetch *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="git ls-remote *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="mvn *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="git add *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="git commit *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="git push *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;ERROR&quot; /C:&quot;Exception&quot; /C:&quot;Caused by&quot; /C:&quot;BUILD&quot; src/test/java/org/example/error" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="powershell -Command &quot;Get-Content src/test/java/org/example/error -Tail 50&quot;" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="dir src/test/java/org/example/error" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="type srctestjavaorgexampleerror *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="powershell -Command &quot;Get-Content src/test/java/org/example/error -Tail 20&quot;" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="java -jar target\doc-json-validator-1.0.jar json" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="git status" />
+        </Execute>
+      </list>
+    </option>
+  </component>
+</project>
